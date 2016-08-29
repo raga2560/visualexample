@@ -3,11 +3,14 @@ Example of visualization
 
 Getting started
 
-## Setup
+- You will need mongodb and Node.js setup
 
+## Setup
+  
 - npm install
 
 - node app.js
+
 
 ## To load data
 
