@@ -4,8 +4,10 @@ Example of visualization
 Getting started
 
 ## Setup
-npm install
-node app.js
+
+- npm install
+
+- node app.js
 
 ## To load data
 
