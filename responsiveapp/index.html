@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+
+<head>
+    <title>AngularJS: UI-Router Quick Start</title>
+    <!-- Bootstrap CSS -->
+    <link href="bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="container">
+  
+  <div class="navbar">
+    <div class="navbar-inner">
+      <a class="brand" href="#">Responsiveness enablement solution</a> 
+	  </br>
+	  Select team <a href="#">TeamA </a>   <a href="#">TeamB </a> 
+      <ul class="well">
+	    
+        <li><a ui-sref="questionroute">View Question/Answers</a></li>
+		<li><a ui-sref="createquestionanswer">Create Question/Answers</a></li>
+		<li><a ui-sref="viewusers">View Team Members</a></li>
+		<li><a ui-sref="createusers">Add Team Members</a></li>
+		
+		<li><a ui-sref="viewnews">View News</a></li>
+		<li><a ui-sref="createnews">Add News</a></li>
+		
+	
+		
+		
+		
+		
+		
+		
+		
+      </ul>
+	  
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      
+	   <div class="well" ui-view="view1">
+	 
+	  
+	  </div>  
+	  
+	  
+	  
+       
+    </div>
+	<div class="col-md-6">
+      
+	   <div ui-view="view2">
+	 
+	  
+	  </div>  
+	  
+	  
+	  
+       
+    </div>
+  </div>         
+  
+  <!-- Angular -->
+  <script src="angular.min.js"></script>
+  <!-- UI-Router -->
+  <script src="angular-ui-router.js"></script>
+  
+    <script src="controllers.js"></script>
+    <script src="services.js"></script>
+  
+  <!-- App Script -->
+  <script>
+    angular.module('myapp', ['ui.router', 'myapp.controllers', 'myapp.services'])
+    .config(function($stateProvider, $urlRouterProvider){
+      
+      // For any unmatched url, send to /route1
+      $urlRouterProvider.otherwise("/route1")
+      
+      $stateProvider
+          
+		  
+        .state('questionroute', {
+            url: "/questionroute",
+			views: {
+                "view1": {
+                    
+					templateUrl: "questionroute.html",
+					 controller: 'QuestionCtrl'
+					 
+					
+                }
+				,
+				"view2": {
+                    
+					templateUrl: "questionplaceholder.html"
+		 
+					 
+					
+                }
+            }
+			
+            
+        })
+		
+		
+          .state('questionroute.questionroutedetail', {
+              url: "/:questionid",
+			
+			views: {
+                 "view21": {
+                    
+					templateUrl: "questiondetailroute.html",
+					 controller: 'GetQuestionCtrl'
+                } 
+			    
+			
+			
+				
+            }
+          })
+		  .state('createquestionanswer', {
+              url: "/createquestionanswer",
+			
+			views: {
+                "view2": {
+                    
+					templateUrl: "createquestionanswer.html",
+					 controller: 'CreateQuestionAnswerCtrl'
+                },
+				"view1": {
+                    
+					templateUrl: "questionroute.html",
+					 controller: 'QuestionCtrl'
+                }
+			  }
+			})
+			.state('viewusers', {
+              url: "/viewusers",
+			
+			views: {
+                
+				"view1": {
+                    
+					templateUrl: "viewusers.html",
+					 controller: 'CreateusersCtrl'
+                }
+			  }
+			})
+			.state('createusers', {
+              url: "/createusers",
+			
+			views: {
+                "view2": {
+                    
+					templateUrl: "createusers.html",
+					 controller: 'CreateusersCtrl'
+                },
+				"view1": {
+                    
+					templateUrl: "viewusers.html",
+					 controller: 'CreateusersCtrl'
+                }
+			  }
+			})
+			 .state('createnews', {
+              url: "/createnews",
+			
+			views: {
+                "view2": {
+                    
+					templateUrl: "createnews.html",
+					 controller: 'CreatenewsCtrl'
+                },
+				"view1": {
+                    
+					templateUrl: "viewnews.html",
+					 controller: 'ViewnewsCtrl'
+                }
+			  }
+			})
+			.state('viewnews', {
+              url: "/viewnews",
+			
+			views: {
+                "view1": {
+                    
+					templateUrl: "viewnews.html",
+					 controller: 'ViewnewsCtrl'
+                }
+			  }
+			})
+			
+			
+		  
+        
+    });
+	
+	
+	
+
+  </script>
+
+</body>
+
+</html>

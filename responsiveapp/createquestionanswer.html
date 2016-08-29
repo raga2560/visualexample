@@ -1,0 +1,56 @@
+
+
+
+<div class="panel panel-default">
+                        <div class="panel-heading">
+                            Enter Question/Answers
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <form role="form" ng-submit="submit()">
+    <div class="form-group">
+                                            <label>Content</label>
+                                            <input class="form-control" placeholder="Enter content" ng-model="content">
+    </div>
+										
+	<div class="form-group">
+                                            <label>Description</label>
+                                            <textarea class="form-control" rows="3" ng-model="description"></textarea>
+    </div>
+	
+	<div class="form-group">
+                                            <label>Number of options</label>
+                                            <input type="number" class="form-control" placeholder="Enter number of options" ng-model="optioncount">
+    </div>
+	
+	<button  class="btn btn-default" ng-click="confirm()">Confirm</button>
+
+<ul>
+  <li ng-repeat="item in options">
+  
+ 
+	<div class="form-group">
+                                            <label>Option:{{item.option}}  Enter details:</label>
+                                            <input type="text" class="form-control" placeholder="Enter content" ng-model="options[$index].name">
+    </div>
+	
+	
+  
+  </li>
+</ul>
+
+
+	 <div class="form-group">
+                                            <label>Answer option:</label>
+                                            <input class="form-control" placeholder="Enter answer option" ng-model="answeroption">
+    </div>
+	
+	 <button type="submit" class="btn btn-default">Submit</button>
+	 
+</div>
+</div>
+</div>	
+</div>
+	
+
